@@ -70,8 +70,43 @@ public class Node<T> {
 		this.right = right;
 	}
 	
-	//defining node methods
-	public boolean isRoot() {
+	//node methods
+	//returns true if the node is root and false if not
+	public boolean isRoot() { // O(1)
 		return parent == null ? true : false;
+	}
+
+	//returns true if the node is a leaf and false if not
+	public boolean isLeaf() { // O(1)
+		return right == null && left == null ? true : false;
+	}
+
+	//returns the degree of the node
+	public int getDegree() { //O(1)
+		int degree = 0;
+
+		if(left != null)
+			degree++;
+		if(right != null)
+			degree++;
+		
+			return degree;
+	}
+
+	//returns the level of the node
+	public int getLevel() { //O(lg n)
+		if(isRoot())
+			return 0;
+
+		return 1 + parent.getLevel();
+	}
+
+	//returns the height of the node
+	public int getHeight() { //O(n)
+		if(isLeaf())
+			return 0;
+
+		return 1 + Math.max(left == null ? 0 : left.getHeight(),
+							right == null ? 0 :right.getHeight());
 	}
 }
