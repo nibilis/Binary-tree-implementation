@@ -59,6 +59,9 @@ public class Node<T> {
 	}
 
 	public void setLeft(Node<T> left) {
+		if(left != null)
+			left.setParent(this);
+
 		this.left = left;
 	}
 
@@ -67,6 +70,9 @@ public class Node<T> {
 	}
 
 	public void setRight(Node<T> right) {
+		if(right != null)
+			right.setParent(this);
+		
 		this.right = right;
 	}
 	
@@ -108,5 +114,14 @@ public class Node<T> {
 
 		return 1 + Math.max(left == null ? 0 : left.getHeight(),
 							right == null ? 0 :right.getHeight());
+	}
+	
+	//overriding the to string method
+	@Override
+	public String toString() {
+		if(this.isRoot())
+			return "Data: " + data + ", parent: null";
+		else
+			return "Data: " + data + ", parent: " + parent.getData();
 	}
 }

@@ -53,13 +53,34 @@ public class BinaryTree {
     public void inOrderTraversal(Node<?> root) {
         if(root != null) {
             inOrderTraversal(root.getLeft());
-            System.out.println(root.getData() + " ");
+            System.out.print(root.getData() + " ");
             inOrderTraversal(root.getRight());
         }
     }
 
-    //traverses the tree in pre order
+    //traverses the tree in pre order (Node -> Left -> Right)
     public void preOrderTraversal() {
-
+    	preOrderTraversal(root);
+    }
+    
+    public void preOrderTraversal(Node<?> root) {
+        if(root != null) {
+        	System.out.print(root.getData() + " ");
+            preOrderTraversal(root.getLeft());
+            preOrderTraversal(root.getRight());
+        }
+    }
+    
+    //traverses the tree in post order (Left -> Right -> Node)
+    public void postOrderTraversal() {
+    	postOrderTraversal(root);
+    }
+    
+    public void postOrderTraversal(Node<?> root) {
+        if(root != null) {
+            postOrderTraversal(root.getLeft());
+            postOrderTraversal(root.getRight());
+            System.out.print(root.getData() + " ");
+        }
     }
 }

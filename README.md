@@ -10,7 +10,6 @@ This repository contains a simple implementation of a binary tree in Java. The b
 - **inOrderTraversal()**: Performs an in-order traversal of the binary tree.
 - **preOrderTraversal()**: Performs a pre-order traversal of the binary tree.
 - **postOrderTraversal()**: Performs a post-order traversal of the binary tree.
-- **levelOrderTraversal()**: Performs a level-order traversal of the binary tree (also known as breadth-first traversal).
 
 ### Node Class Methods
 The `Node` class represents each individual node of the binary tree. Some common methods include:
